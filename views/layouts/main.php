@@ -40,28 +40,28 @@ AppAsset::register($this);
                     ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['label' => 'Logout (' . Yii::$app->user->identity->email_address . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],
             ]);
             NavBar::end();
         ?>
+        <div class="" style="height: 100px; background-color: lightblue;">
 
-        <div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-            <?= $content ?>
+        </div>
+        <div class="">
+            <div class="container" style="padding: 0px;">
+                <div class="col-lg-12" style="background: rgba(255, 215, 255, 0.09);">
+                <?= Breadcrumbs::widget([
+                    'options' => ['class' => 'breadcrumb','style' => 'background-color: white;'],
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+                <?= $content ?>
+                </div>
+            </div>
         </div>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
-        </div>
-    </footer>
 
 <?php $this->endBody() ?>
 </body>
