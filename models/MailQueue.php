@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $mail_id
  * @property integer $domain_id
- * @property string $failure_type
+ * @property string $message
  * @property integer $sent
  * @property string $date_sent
  *
@@ -31,10 +31,10 @@ class MailQueue extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['domain_id', 'failure_type', 'sent'], 'required'],
+            [['domain_id'], 'required'],
             [['domain_id', 'sent'], 'integer'],
             [['date_sent'], 'safe'],
-            [['failure_type'], 'string', 'max' => 45]
+            [['message'], 'string', 'max' => 255]
         ];
     }
 
@@ -46,7 +46,7 @@ class MailQueue extends \yii\db\ActiveRecord
         return [
             'mail_id' => 'Mail ID',
             'domain_id' => 'Domain ID',
-            'failure_type' => 'Failure Type',
+            'message' => 'Message',
             'sent' => 'Sent',
             'date_sent' => 'Date Sent',
         ];

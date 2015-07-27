@@ -14,6 +14,9 @@ return [
         'gii' => 'yii\gii\Module',
     ],
     'components' => [
+        'watchdog' => [
+            'class' => 'app\components\Watchdog',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
